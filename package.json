@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "yarn typegen:theme",
+    "prebuild": "npm run typegen:theme",
     "build": "tsc -b && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --fix",
@@ -48,6 +48,5 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.9.2"
-  },
-  "packageManager": "yarn@4.7.0"
+  }
 }
