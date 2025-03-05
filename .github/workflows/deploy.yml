@@ -20,40 +20,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache yarn dependencies
+      - name: Cache npm dependencies
         uses: actions/cache@v4
-        id: yarn-cache
+        id: npm-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ~/.npm
             **/node_modules
             **/.eslintcache
-            **/.yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Cache build output
-        uses: actions/cache@v4
-        id: build-cache
-        with:
-          path: |
-            **/dist
-            **/build
-          key: ${{ runner.os }}-build-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-npm-
 
       - name: Install modules
-        run: yarn install --frozen-lockfile
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        if: steps.npm-cache.outputs.cache-hit != 'true'
 
       - name: Build project
-        run: yarn build
-        if: steps.build-cache.outputs.cache-hit != 'true'
+        run: npm run build

@@ -5,14 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "yarn typegen:theme",
+    "prebuild": "npm run typegen:theme",
     "build": "tsc -b && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --fix",
     "preview": "vite preview",
-    "deploy": "yarn build && firebase deploy",
-    "typegen:theme": "chakra typegen ./src/theme/index.ts",
-    "typegen:db": "dotenv -e .env -- cross-var supabase gen types typescript --project-id %SUPABASE_PROJECT_ID% > src/supabase/database.types.ts"
+    "typegen:theme": "chakra typegen ./src/theme/index.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.4.0",
