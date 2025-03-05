@@ -25,18 +25,6 @@ jobs:
         run: |
           corepack enable
           yarn set version berry
-          echo "YARN_VERSION=$(yarn -v)" >> $GITHUB_OUTPUT
-        id: setup-yarn
-
-      - name: Yarn Cache - PnP
-        uses: actions/cache@v4
-        with:
-          path: |
-            .yarn/cache
-            .pnp.*
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ steps.setup-yarn.outputs.YARN_VERSION }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
         run: yarn install --immutable
