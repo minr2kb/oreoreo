@@ -1,0 +1,5 @@
+{
+  "stylelint.enable": true,
+  "stylelint.validate": ["typescript", "typescriptreact"],
+  "prettier.configPath": ".prettierrc"
+}
