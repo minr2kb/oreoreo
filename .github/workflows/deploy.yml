@@ -24,7 +24,7 @@ jobs:
       - name: Setup Yarn Berry
         run: |
           corepack enable
-          yarn set version 3.6.4
+          yarn set version berry
           echo "YARN_VERSION=$(yarn -v)" >> $GITHUB_OUTPUT
         id: setup-yarn
 

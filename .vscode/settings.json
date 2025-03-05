@@ -1,5 +1,15 @@
 {
   "stylelint.enable": true,
-  "stylelint.validate": ["typescript", "typescriptreact"],
-  "prettier.configPath": ".prettierrc"
+  "stylelint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.configPath": ".prettierrc",
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

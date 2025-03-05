@@ -31,7 +31,7 @@
   "devDependencies": {
     "@chakra-ui/cli": "^3.2.1",
     "@eslint/js": "^9.13.0",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.13.9",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.3",
@@ -49,5 +49,5 @@
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.9.2"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@4.7.0"
 }
