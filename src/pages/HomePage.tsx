@@ -34,11 +34,13 @@ const HomePage = () => {
   const addO = () => {
     playSound('o');
     setOreo((prev) => [...prev, 'O']);
+    console.log('O');
   };
 
   const addRE = () => {
     playSound('re');
     setOreo((prev) => [...prev, 'RE']);
+    console.log('RE');
   };
 
   const optimizeOreoSequence = useCallback((pieces: OreoPiece[]): OreoSequence[] => {
